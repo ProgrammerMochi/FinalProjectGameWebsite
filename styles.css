@@ -1,0 +1,213 @@
+/* Contributed by: Robbi Eduard Reyes & Hazel Gail Kabiling — Designed CSS visual theme including layout, spacing, transitions, responsiveness, color system, and neon arcade styling (color theme collaboration) */
+
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+
+
+:root {
+  /* Colors */
+  --neon-green: #39ff14;
+  --neon-cyan: #00eaff;
+  --neon-magenta: #ff2bd6;
+
+  --color-primary: var(--neon-green);
+  --color-secondary: #f8fff8;
+  --color-background: #050505;
+  --color-text: #f8fff8;
+  --color-highlight: #0f1f0f;
+  /* Spacing */
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  /* Border Radius */
+  --radius-md: 8px;
+  --radius-lg: 12px;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  flex: 1;
+  width: 100%;
+  max-width: 960px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+footer {
+  margin-top: var(--spacing-md);
+}
+
+body {
+  font-family: "Press Start 2P", monospace;
+  background:
+    radial-gradient(circle at 20% 10%, #103010 0%, transparent 40%),
+    radial-gradient(circle at 80% 90%, #0b260b 0%, transparent 35%),
+    var(--color-background);
+  color: var(--color-text);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  align-items: center;
+  padding: var(--spacing-lg);
+  padding-top: 10px;
+}
+h1 {
+  margin-top: 50px;
+  margin-bottom: var(--spacing-lg);
+  text-align: center;
+  font-size: 2.5rem;
+  color: var(--color-secondary);
+  text-shadow: 
+    0 0 6px var(--color-primary),
+    0 0 14px var(--color-primary);
+  letter-spacing: 2px;
+}
+
+header { 
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+main > section:not(.controls):not(#gameBoard) {
+  width: 100%;
+  text-align: center;
+}
+
+main > section:nth-of-type(2) {
+  margin-top: 48px;
+}
+
+#statusText,
+main > section p {
+  margin-top: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
+  font-size: 1.25rem;
+}
+
+#gameBoard {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  grid-template-rows: repeat(3, 100px);
+  gap: var(--spacing-md);
+  margin-top: 30px;
+  margin-bottom: auto;
+}
+.cell {
+  background-color: #000;
+  color: var(--neon-green);
+  border: 2px solid var(--neon-green);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease, color 0.3s ease;
+  box-shadow: 
+  inset 0 0 8px rgba(57, 255, 20, 0.35),
+  0 0 8px rgba(57, 255, 20, 0.45),
+  0 0 18px rgba(57, 255, 20, 0.3);
+  text-shadow:
+    0 0 4px rgba(57, 255, 20, 0.9),
+    0 0 10px rgba(57, 255, 20, 0.65);
+}
+.cell:hover {
+  background-color: var(--color-highlight);
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(57, 255, 20, 0.7);
+}
+.cell:active {
+  transform: scale(0.95);
+  box-shadow: 0 0 5px rgba(57, 255, 20, 0.9);
+}
+.controls{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 35px;
+  margin-top: 10px;
+  margin-bottom: var(--spacing-lg);
+  flex-wrap: wrap;
+}
+button {
+  background-color: #000;
+  color: var(--neon-green);
+  border: 3px solid var(--neon-green); 
+  padding: 20px 30px;
+  font-size: 1rem;
+  font-family: "Press Start 2P", monospace;
+  cursor: pointer;
+  transition: transform 0.08s steps(1, end), box-shadow 0.08s steps(1, end),
+    background-color 0.2s ease, color 0.2s ease;
+  box-shadow: 4px 4px 0 #f8fff8, 8px 8px 0 #0b260b; 
+  text-shadow: none;
+}
+button:hover {
+  background-color: var(--neon-green);
+  color: #050505;
+  box-shadow: 4px 4px 0 #f8fff8, 8px 8px 0 #0b260b; 
+}
+button:active {
+  transform: translate(4px, 4px); 
+  box-shadow: 4px 4px 0 #0b260b;  
+}
+.is-active-turn {
+  color: var(--color-secondary);
+  text-shadow:
+    0 0 6px var(--color-primary),
+    0 0 14px var(--color-primary);
+}
+.is-win {
+  background-color: #112411;
+  border-color: var(--color-secondary);
+  box-shadow: 0 0 16px var(--color-primary);
+}
+.is-disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.preview {
+  background-color: #0d1d0d;
+  transform: scale(1.03);
+  box-shadow: 0 0 10px rgba(248, 255, 248, 0.35);
+}
+
+
+.neon-x {
+  color: var(--color-primary); /* neon green */
+  text-shadow:
+    0 0 4px rgba(57, 255, 20, 0.95),
+    0 0 10px rgba(57, 255, 20, 0.75),
+    0 0 18px rgba(57, 255, 20, 0.55);
+  box-shadow:
+    inset 0 0 8px rgba(57, 255, 20, 0.25),
+    0 0 12px rgba(57, 255, 20, 0.45);
+}
+
+.neon-o {
+  color: var(--color-secondary); /* white */
+  text-shadow:
+    0 0 4px rgba(248, 255, 248, 0.95),
+    0 0 10px rgba(248, 255, 248, 0.75),
+    0 0 18px rgba(248, 255, 248, 0.55);
+  box-shadow:
+    inset 0 0 8px rgba(248, 255, 248, 0.20),
+    0 0 12px rgba(248, 255, 248, 0.35);
+}
+
+@media (max-width: 500px) {
+  #gameBoard {
+    grid-template-columns: repeat(3, 80px);
+    grid-template-rows: repeat(3, 80px);
+  }
+  .cell {
+    font-size: 1.5rem;
+  }
+}

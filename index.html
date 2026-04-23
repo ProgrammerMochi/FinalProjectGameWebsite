@@ -1,0 +1,47 @@
+<!-- Contributed by: Hazel Gail Kabiling & Lucas Flores— Built semantic HTML structure including header, controls, scoreboard, game board grid (9 cells), and footer -->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <header>
+      <h1>Tic Tac Toe</h1>
+    </header>
+
+    <main>
+      <section class="controls">
+        <button id="startBtn">Start</button>
+        <button id="resetBtn">Reset</button>
+      </section>
+      <section>
+        <p id="statusText">Game not started</p>
+      </section>
+      <section>
+        <p>X Score: <span id="xScore">0</span></p>
+        <p>O Score: <span id="oScore">0</span></p>
+        <p>Draws: <span id="drawScore">0</span></p>
+        <p>Rounds Played: <span id="roundCount">0</span></p>
+      </section>
+      <section id="gameBoard">
+        <button class="cell" data-index="0" aria-label="Cell 1"></button>
+        <button class="cell" data-index="1" aria-label="Cell 2"></button>
+        <button class="cell" data-index="2" aria-label="Cell 3"></button>
+        <button class="cell" data-index="3" aria-label="Cell 4"></button>
+        <button class="cell" data-index="4" aria-label="Cell 5"></button>
+        <button class="cell" data-index="5" aria-label="Cell 6"></button>
+        <button class="cell" data-index="6" aria-label="Cell 7"></button>
+        <button class="cell" data-index="7" aria-label="Cell 8"></button>
+        <button class="cell" data-index="8" aria-label="Cell 9"></button>
+      </section>
+    </main>
+    <footer>
+      <p>Tic Tac Toe Project</p>
+    </footer>
+    <script src="script.js" defer></script>
+  </body>
+</html>
